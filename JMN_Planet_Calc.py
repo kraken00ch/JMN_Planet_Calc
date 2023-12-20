@@ -41,48 +41,68 @@ def get_planet_selection():
         # Input validation
         except ValueError:
             print("Invalid input. Please enter a valid planet number.")
-# switch case to calculate weight
 def calculate_weight_on_planet(userweight, planet):
-    """
-    Calculate the weight on a selected planet based on user input.
+    planet_factors = {
+        1: 0.38,  # Mercury
+        2: 0.91,  # Venus
+        3: 0.17,  # Moon
+        4: 0.38,  # Mars
+        5: 2.34,  # Jupiter
+        6: 1.06,  # Saturn
+        7: 0.92,  # Uranus
+        8: 1.19,  # Neptune
+        9: 0.07   # Pluto
+    }
 
-    Args:
-        userweight (float): The user's weight in pounds.
-        planet (int): The selected planet number.
+    if planet in planet_factors:
+        result = userweight * planet_factors[planet]
+        return result
+    else:
+        print("Invalid selection")
+        return None
+
+# switch case to calculate weight
+# def calculate_weight_on_planet(userweight, planet):
+#     """
+#     Calculate the weight on a selected planet based on user input.
+
+#     Args:
+#         userweight (float): The user's weight in pounds.
+#         planet (int): The selected planet number.
         
-    Returns:
-        float: The calculated weight on the selected planet.
-    """
-    match planet: 
-        case 1: # Mercury
-            result = userweight * 0.38
-            print(f"Weight on Mercury: {result}")
-        case 2: # Venus
-            result = userweight * 0.91
-            print(f"Weight on Venus: {result}")
-        case 3: # Moon
-            result = userweight * 0.17
-            print(f"Weight on the Moon: {result}")
-        case 4: # Mars
-            result = userweight * 0.38
-            print(f"Weight on Mars: {result}")
-        case 5: # Jupiter
-            result = userweight * 2.34
-            print(f"Weight on Jupiter: {result}")
-        case 6: # Saturn
-            result = userweight * 1.06
-            print(f"Weight on Saturn: {result}")
-        case 7: # Uranus
-            result = userweight * 0.92
-            print(f"Weight on Uranus: {result}")
-        case 8: # Neptune
-            result = userweight * 1.19
-            print(f"Weight on Neptune: {result}")
-        case 9: # Pluto
-            result = userweight * 0.07
-            print(f"Weight on Pluto: {result}")
-        case _:
-            print("Invalid selection")
+#     Returns:
+#         float: The calculated weight on the selected planet.
+#     """
+#     match planet: 
+#         case 1: # Mercury
+#             result = userweight * 0.38
+#             return result
+#         case 2: # Venus
+#             result = userweight * 0.91
+#             return result
+#         case 3: # Moon
+#             result = userweight * 0.17
+#             return result
+#         case 4: # Mars
+#             result = userweight * 0.38
+#             return result
+#         case 5: # Jupiter
+#             result = userweight * 2.34
+#             return result
+#         case 6: # Saturn
+#             result = userweight * 1.06
+#             return result
+#         case 7: # Uranus
+#             result = userweight * 0.92
+#             return result
+#         case 8: # Neptune
+#             result = userweight * 1.19
+#             return result
+#         case 9: # Pluto
+#             result = userweight * 0.07
+#             return result
+#         case _:
+#             print("Invalid selection")
 # print formatting and output rounding
 def display_weight_info(userweight, result):
     """
