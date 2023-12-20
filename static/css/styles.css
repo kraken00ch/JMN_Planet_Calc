@@ -10,7 +10,7 @@ body {
 }
 
 header {
-    background-color: #000000;
+    background-color: #007BFF;
     color: white;
     padding: 1em;
     text-align: center;
@@ -43,13 +43,13 @@ input, select, button {
 }
 
 button {
-    background-color: #00FF00;
+    background-color: #007BFF;
     color: white;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #006400;
+    background-color: #0056b3;
 }
 
 #result {
@@ -58,7 +58,7 @@ button:hover {
 }
 
 footer {
-    background-color: #000000;
+    background-color: #007BFF;
     color: white;
     text-align: center;
     padding: 1em;
