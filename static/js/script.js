@@ -34,3 +34,30 @@ function calculateWeight() {
         document.getElementById('result').style.display = 'block';
     });
 }
+
+// Add an event listener to the form for submit events
+document.getElementById('calculationForm').addEventListener('submit', function (event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    // Delay the form submission to retain the input box value
+    setTimeout(function () {
+        // Call the calculateWeight function
+        calculateWeight();
+    }, 0);
+});
+
+// Add an event listener to the userweight input for keyup events
+document.getElementById('userweight').addEventListener('keydown', function (event) {
+    // Check if the key pressed is Enter (key code 13)
+    if (event.key === 'Enter' || event.keyCode === 13) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+
+        // Delay the form submission to retain the input box value
+        setTimeout(function () {
+            // Call the calculateWeight function
+            calculateWeight();
+        }, 0);
+    }
+});

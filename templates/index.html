@@ -5,20 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planet Calculator</title>
     <!-- Include the external CSS file -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/static/css/styles.css') }}">
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <style>
         /* Add your CSS styles here */
+        @font-face {
+            font-family: 'Inter';
+            src: url('static/fonts/Inter-VariableFont_slnt,wght.ttf') format('ttf');
+            font-weight: 400;
+            font-style: normal;
+        }
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter';
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background-image: url('/static/images/background.jpeg'); /* Adjust the path based on your project structure */
+            background-size: 200% 200%; /* Ensure the background image covers the entire body */
             color: #333;
         }
 
         header {
-            background-color: #007BFF;
+            background-color: #000000;
             color: white;
             padding: 1em;
             text-align: center;
@@ -43,7 +50,7 @@
         }
 
         input, select, button {
-            width: 100%;
+            width: 90%;
             padding: 10px;
             margin-bottom: 16px;
             border: 1px solid #ddd;
@@ -51,22 +58,24 @@
         }
 
         button {
-            background-color: #007BFF;
+            background-color: #228B22;
             color: white;
             cursor: pointer;
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #00FF00;
         }
 
         #result {
             margin-top: 20px;
             display: none;
         }
-
+        #userweight {
+            width: 50%; /* You can adjust the width as needed */
+        }
         footer {
-            background-color: #007BFF;
+            background-color: #000000;
             color: white;
             text-align: center;
             padding: 1em;
@@ -78,7 +87,7 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to the Planet Calculator Web App!</h1>
+        <h1>Welcome to the JMN Planet Calc Web App!</h1>
     </header>
 
     <main>
@@ -111,7 +120,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2023 Planet Calculator</p>
+        <p>&copy; JMN Planet Calc 2023</p>
     </footer>
 </body>
 </html>
