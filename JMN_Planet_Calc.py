@@ -55,54 +55,13 @@ def calculate_weight_on_planet(userweight, planet):
     }
 
     if planet in planet_factors:
-        result = userweight * planet_factors[planet]
+        gravity_factors = planet_factors[planet]
+        result = userweight * gravity_factors
         return result
     else:
         print("Invalid selection")
-        return None
+        return userweight, None # Return None for invalid planet selection
 
-# switch case to calculate weight
-# def calculate_weight_on_planet(userweight, planet):
-#     """
-#     Calculate the weight on a selected planet based on user input.
-
-#     Args:
-#         userweight (float): The user's weight in pounds.
-#         planet (int): The selected planet number.
-        
-#     Returns:
-#         float: The calculated weight on the selected planet.
-#     """
-#     match planet: 
-#         case 1: # Mercury
-#             result = userweight * 0.38
-#             return result
-#         case 2: # Venus
-#             result = userweight * 0.91
-#             return result
-#         case 3: # Moon
-#             result = userweight * 0.17
-#             return result
-#         case 4: # Mars
-#             result = userweight * 0.38
-#             return result
-#         case 5: # Jupiter
-#             result = userweight * 2.34
-#             return result
-#         case 6: # Saturn
-#             result = userweight * 1.06
-#             return result
-#         case 7: # Uranus
-#             result = userweight * 0.92
-#             return result
-#         case 8: # Neptune
-#             result = userweight * 1.19
-#             return result
-#         case 9: # Pluto
-#             result = userweight * 0.07
-#             return result
-#         case _:
-#             print("Invalid selection")
 # print formatting and output rounding
 def display_weight_info(userweight, result):
     """

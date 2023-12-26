@@ -70,9 +70,27 @@
         #result {
             margin-top: 20px;
             display: none;
+            text-align: center;
         }
         #userweight {
             width: 50%; /* You can adjust the width as needed */
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        #planet {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        #resultContainer {
+            display: block;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
         }
         footer {
             background-color: #000000;
@@ -111,12 +129,13 @@
             <button type="button" onclick="calculateWeight()">Calculate Weight</button>
         </form>
 
-        <div id="result" style="display: none;">
+        <div id="result">
             <h2>Calculation Result</h2>
             <p id="earthWeight"></p>
             <p id="planetWeight"></p>
             <a href="/">Go back</a>
         </div>
+        
     </main>
 
     <footer>

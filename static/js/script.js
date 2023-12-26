@@ -40,11 +40,8 @@ document.getElementById('calculationForm').addEventListener('submit', function (
     // Prevent the default form submission behavior
     event.preventDefault();
 
-    // Delay the form submission to retain the input box value
-    setTimeout(function () {
-        // Call the calculateWeight function
-        calculateWeight();
-    }, 0);
+    // Call the calculateWeight function
+    calculateWeight();
 });
 
 // Add an event listener to the userweight input for keyup events
@@ -54,10 +51,8 @@ document.getElementById('userweight').addEventListener('keydown', function (even
         // Prevent the default form submission behavior
         event.preventDefault();
 
-        // Delay the form submission to retain the input box value
-        setTimeout(function () {
-            // Call the calculateWeight function
-            calculateWeight();
-        }, 0);
+        // Call the calculateWeight function
+        calculateWeight();
     }
 });
+
