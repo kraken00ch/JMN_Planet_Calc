@@ -6,7 +6,7 @@ app = Flask(__name__, static_url_path='/static', static_folder='~/JMN_Planet_Cal
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return app.send_static_file('index.html')
 
 @app.route('/calculate', methods=['POST'])
 def calculate():
