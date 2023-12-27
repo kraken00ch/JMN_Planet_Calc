@@ -13,13 +13,16 @@ def index():
 @app.route('/calculate', methods=['POST'])
 def calculate():
     try:
-        userweight = get_user_weight()
-        planet = get_planet_selection()
+        data = request.get_json()  # Extract JSON data from the request body
+        userweight = data.get('userweight')
+        planet = int(data.get('planet'))
+
+        # Perform calculations based on user input
         result = calculate_weight_on_planet(userweight, planet)
 
         if result is not None:
             # Return a JSON response with calculated values
-            return jsonify({'userweight': userweight, 'result': result})
+            return jsonify({'earthweight': userweight, 'planetweight': result})
         else:
             # Return an error response with an appropriate status code
             return jsonify({'error': 'Calculation failed'}), 500

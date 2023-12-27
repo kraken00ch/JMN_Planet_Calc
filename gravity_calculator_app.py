@@ -45,6 +45,5 @@ except (KeyboardInterrupt, EOFError):
 except Exception as e:
     print(f"An error occurred: {e}. Exiting.")
 finally:
-    continue_program = False
     print("Exiting the program...")
     time.sleep(3)  # Sleep for 3 seconds before quitting

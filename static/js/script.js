@@ -8,20 +8,19 @@ function calculateWeight() {
     fetch('/calculate', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
         },
-        body: `userweight=${userweight}&planet=${planet}`,
+        body: JSON.stringify({ userweight, planet }),
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Calculation failed');
-        }
-        return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
+        if ('error' in data) {
+            throw new Error(data.error);
+        }
+
         // Update the GUI with the calculation result
-        document.getElementById('earthWeight').innerText = `Weight on Earth: ${data.userweight} lbs`;
-        document.getElementById('planetWeight').innerText = `Weight on selected planet: ${data.result} lbs`;
+        document.getElementById('earthWeight').innerText = `Weight on Earth: ${data.earthweight} lbs`;
+        document.getElementById('planetWeight').innerText = `Weight on selected planet: ${data.planetweight} lbs`;
 
         // Display the result section
         document.getElementById('result').style.display = 'block';
@@ -44,15 +43,8 @@ document.getElementById('calculationForm').addEventListener('submit', function (
     calculateWeight();
 });
 
-// Add an event listener to the userweight input for keyup events
-document.getElementById('userweight').addEventListener('keydown', function (event) {
-    // Check if the key pressed is Enter (key code 13)
-    if (event.key === 'Enter' || event.keyCode === 13) {
-        // Prevent the default form submission behavior
-        event.preventDefault();
-
-        // Call the calculateWeight function
-        calculateWeight();
-    }
+// Add an event listener to the userweight input for input events
+document.getElementById('userweight').addEventListener('input', function (event) {
+    // Call the calculateWeight function
+    calculateWeight();
 });
-
