@@ -12,12 +12,13 @@ function calculateWeight() {
         },
         body: JSON.stringify({ userweight, planet }),
     })
-    .then(response => response.json())
-    .then(data => {
-        if ('error' in data) {
-            throw new Error(data.error);
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Calculation failed');
         }
-
+        return response.json();
+    })
+    .then(data => {
         // Update the GUI with the calculation result
         document.getElementById('earthWeight').innerText = `Weight on Earth: ${data.earthweight} lbs`;
         document.getElementById('planetWeight').innerText = `Weight on selected planet: ${data.planetweight} lbs`;
