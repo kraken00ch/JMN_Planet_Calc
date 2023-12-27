@@ -2,9 +2,9 @@
 from flask import Flask, render_template, url_for, request, jsonify
 from JMN_Planet_Calc import calculate_weight_on_planet
 
-app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__, static_url_path='/static', static_folder='~/JMN_Planet_Calc/static')
 
-@app.route('/myapp')
+@app.route('/')
 def index():
     return render_template('index.html')
 
