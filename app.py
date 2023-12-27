@@ -4,7 +4,7 @@ from JMN_Planet_Calc import calculate_weight_on_planet
 
 app = Flask(__name__, static_url_path='/static')
 
-@app.route('/')
+@app.route('/myapp')
 def index():
     return render_template('index.html')
 
