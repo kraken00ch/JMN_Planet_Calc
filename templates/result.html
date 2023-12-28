@@ -5,16 +5,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result</title>
+    <style>
+        body {
+            font-family: 'Inter';
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        #resultContainer {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #resultContainer h2 {
+            color: #228B22;
+        }
+
+        #earthWeight, #planetWeight {
+            margin-bottom: 10px;
+        }
+
+        #backLink {
+            display: block;
+            margin-top: 10px;
+            color: #228B22;
+            text-decoration: none;
+        }
+
+        #backLink:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    {% if error %}
-        <h2>Error</h2>
-        <p>{{ error }}</p>
-    {% else %}
-        <h2>Calculation Result</h2>
-        <p id="earthWeight">Weight on Earth: {{ earthweight }} lbs</p>
-        <p id="planetWeight">Weight on selected planet: {{ planetweight }} lbs</p>
-    {% endif %}
-    <a href="/">Go back</a>
+    <div id="resultContainer">
+        {% if error %}
+            <h2>Error</h2>
+            <p>{{ error }}</p>
+        {% else %}
+            <h2>Calculation Result</h2>
+            <p id="earthWeight">Weight on Earth: {{ earthweight }} lbs</p>
+            <p id="planetWeight">Weight on selected planet: {{ planetweight }} lbs</p>
+        {% endif %}
+        <a id="backLink" href="/">Go back</a>
+    </div>
 </body>
 </html>
