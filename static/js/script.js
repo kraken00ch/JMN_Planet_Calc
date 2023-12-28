@@ -34,21 +34,6 @@ function calculateWeight() {
     });
 }
 
-// Add an event listener to the form for submit events
-document.getElementById('calculationForm').addEventListener('submit', function (event) {
-    // Prevent the default form submission behavior
-    event.preventDefault();
-
-    // Call the calculateWeight function
-    calculateWeight();
-});
-
-// Add an event listener to the userweight input for input events
-document.getElementById('userweight').addEventListener('input', function (event) {
-    // Call the calculateWeight function
-    calculateWeight();
-});
-
 // Add an event listener to the userweight input for keyup events
 document.getElementById('userweight').addEventListener('keyup', function (event) {
     // Check if the pressed key is "Enter"
@@ -56,6 +41,15 @@ document.getElementById('userweight').addEventListener('keyup', function (event)
         // Call the calculateWeight function
         calculateWeight();
     }
+});
+
+// Add an event listener to the form for submit events
+document.getElementById('calculationForm').addEventListener('submit', function (event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    // Call the calculateWeight function
+    calculateWeight();
 });
 
 // Add an event listener to the planet dropdown for change events
