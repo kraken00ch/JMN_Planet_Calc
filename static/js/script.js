@@ -48,3 +48,18 @@ document.getElementById('userweight').addEventListener('input', function (event)
     // Call the calculateWeight function
     calculateWeight();
 });
+
+// Add an event listener to the userweight input for keyup events
+document.getElementById('userweight').addEventListener('keyup', function (event) {
+    // Check if the pressed key is "Enter"
+    if (event.key === 'Enter') {
+        // Call the calculateWeight function
+        calculateWeight();
+    }
+});
+
+// Add an event listener to the planet dropdown for change events
+document.getElementById('planet').addEventListener('change', function () {
+    // Call the calculateWeight function when the selected planet changes
+    calculateWeight();
+});
