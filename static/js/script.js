@@ -1,8 +1,10 @@
-// script.js
+// static/js/script.js
+
 function calculateWeight() {
     const userweight = document.getElementById('userweight').value;
     const planet = document.getElementById('planet').value;
 
+    // Make an asynchronous request to the Flask backend
     fetch('/calculate', {
         method: 'POST',
         headers: {
@@ -10,16 +12,12 @@ function calculateWeight() {
         },
         body: JSON.stringify({ userweight, planet }),
     })
-    .then(response => {
-        if (!response.ok) {
-            return response.text().then(errorMessage => {
-                console.error('Server Error:', errorMessage);
-                throw new Error('Calculation failed');
-            });
-        }
-        return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
+        if ('error' in data) {
+            throw new Error(data.error);
+        }
+
         // Update the GUI with the calculation result
         document.getElementById('earthWeight').innerText = `Weight on Earth: ${data.earthweight} lbs`;
         document.getElementById('planetWeight').innerText = `Weight on selected planet: ${data.planetweight} lbs`;
