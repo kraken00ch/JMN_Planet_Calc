@@ -35,3 +35,18 @@ function calculateWeight() {
         document.getElementById('result').style.display = 'block';
     });
 }
+
+// Add an event listener to the form for submit events
+document.getElementById('calculationForm').addEventListener('submit', function (event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    // Call the calculateWeight function
+    calculateWeight();
+});
+
+// Add an event listener to the userweight input for input events
+document.getElementById('userweight').addEventListener('input', function (event) {
+    // Call the calculateWeight function
+    calculateWeight();
+});
