@@ -12,10 +12,16 @@ def calculate_weight_on_planet(userweight, planet):
         9: 0.07   # Pluto
     }
 
+    try:
+        userweight = float(userweight)  # Convert userweight to float
+    except ValueError:
+        print("Invalid userweight. Could not convert to a number.")
+        return None
+
     if planet in planet_factors:
         gravity_factors = planet_factors[planet]
         result = userweight * gravity_factors
         return result
     else:
         print("Invalid selection")
-        return None  # Return None for an invalid planet selection
+        return None
