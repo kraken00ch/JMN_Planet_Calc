@@ -3,8 +3,10 @@ from flask import Flask, render_template, request, jsonify
 from user_input import get_user_weight, get_planet_selection
 from planet_calculation import calculate_weight_on_planet
 from display_info import display_weight_info
+from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
+metrics = PrometheusMetrics(app)
 
 @app.route('/')
 def index():
@@ -34,4 +36,4 @@ def calculate():
         return jsonify({'error': 'Internal Server Error'}), 500
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
